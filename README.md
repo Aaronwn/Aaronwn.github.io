@@ -1,12 +1,10 @@
-# BY Blog
+# Aaronwn Blog
 
 > 下面是博客的搭建教程，这个教程修改自 [Hux](https://github.com/Huxpro/huxpro.github.io) 。
 > 
 > 更为详细的教程[《利用 GitHub Pages 快速搭建个人博客》](http://www.jianshu.com/p/e68fba58f75c)
 > 
-### [我的博客在这里 &rarr;](http://qiubaiying.github.io)
-
-![](https://raw.githubusercontent.com/qiubaiying/qiubaiying.github.io/master/img/readme-home.png)
+### [我的博客在这里 &rarr;](http://aaronwn.github.io)
 
 
 ## 使用
@@ -44,13 +42,13 @@
 
 ```
 # Site settings
-title: Hux Blog             # 你的博客网站标题
-SEOTitle: Hux Blog			# 在后面会详细谈到
+title: Aaronwn Blog             # 你的博客网站标题
+SEOTitle: Aaronwn Blog			# 在后面会详细谈到
 description: "Cool Blog"    # 随便说点，描述一下
 
 # SNS settings      
-github_username: huxpro     # 你的github账号
-weibo_username: huxpro      # 你的微博账号，底部链接会自动更新的。
+github_username: Aaronwn     # 你的github账号
+weibo_username: AARONWN      # 你的微博账号，底部链接会自动更新的。
 
 # Build settings
 # paginate: 10              # 一页你准备放几篇文章
@@ -67,23 +65,20 @@ yaml 头文件长这样:
 ```
 ---
 layout:     post
-title:      定时器 你真的会使用吗？
-subtitle:   iOS定时器详解
-date:       2016-12-13
-author:     BY
-header-img: img/post-bg-ios9-web.jpg
-catalog: 	 true
+title:      ES6基础整理
+subtitle:   ES6常用特性一览
+date:       2017-12-18
+author:     Aaronwn
+header-img: img/post-bg-js-version.jpg
+catalog: true
 tags:
-    - iOS
-    - 定时器
+    - js
 ---
 
 ```
 
 ### 侧边栏
 
-看右边:
-![](https://raw.githubusercontent.com/qiubaiying/qiubaiying.github.io/master/img/readme-side.png)
 
 设置是在 `_config.yml`文件里面的`Sidebar settings`那块。
 
@@ -118,7 +113,7 @@ featured-condition-size: 1     # A tag will be featured if the size of it is mor
 
 ### Social-media Account
 
-在下面输入的社交账号，没有的添加的不会显示在侧边框中。新加入了[简书](https:/www.jianshu.com)链接, <http://www.jianshu.com/u/e71990ada2fd>
+在下面输入的社交账号，没有的添加的不会显示在侧边框中。
 
 	# SNS settings
 	RSS: false
