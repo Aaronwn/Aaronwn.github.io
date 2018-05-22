@@ -11,19 +11,21 @@ tags:
 ---
 
 
-# Vue-router简介
+## Vue-router简介
 
-简单说 路由就是url和组件的一种映射关系，根据不同的url，加载不同的组件，进而渲染不同的页面效果。
-- router-link: 是路由入口，该组件用于帮助用户进行导航 ，用 to 属性指定目标地址；
-- router-view : 是路由的出口，路由匹配到的组件将渲染在这里,即渲染 <router-link>指向的目标地址。
+> 简单说 路由就是url和组件的一种映射关系，根据不同的url，加载不同的组件，进而渲染不同的页面效果。
 
-# 如何创建vue-router
-## 步骤
+router-link: 是路由入口，该组件用于帮助用户进行导航 ，用 to 属性指定目标地址；
+
+router-view : 是路由的出口，路由匹配到的组件将渲染在这里,即渲染 router-link指向的目标地址。
+
+## 如何创建vue-router
+### 步骤
 1. 创建组件
 2. 配置路由
 3. 生成路由实例
 4. 将router挂载到根实例
-## 完整demo
+### 完整demo
 ``` js
 import Vue from 'vue'
 import App from './App'
@@ -71,10 +73,10 @@ new Vue({
 **demo效果**
 ![img](/img/in-post/vue-router-demo1.jpg)
 
-## 编程式导航
+### 编程式导航
 ![img](/img/in-post/vue-router-js.jpg)
 
-## 命名路由
+### 命名路由
 有时候，通过一个名称来标识一个路由显得更方便一些，特别是在链接一个路由，或者是执行一些跳转的时候。你可以在创建 Router 实例的时候，在 routes 配置中给某个路由设置名称。
 ```js
 const router = new VueRouter({
@@ -88,9 +90,9 @@ const router = new VueRouter({
 })
 ```
 
-## 路由重定向和别名
+### 路由重定向和别名
 
-### 重定向
+#### 重定向
 ```js
 const router = new VueRouter({
   routes: [
@@ -98,7 +100,7 @@ const router = new VueRouter({
   ]
 })
 ```
-### 别名
+#### 别名
 ``` js
 const router = new VueRouter({
   routes: [
@@ -124,7 +126,7 @@ routes
 })
 ```
 
-## 路由的滚动 scrollBehavior 
+### 路由的滚动 scrollBehavior 
 
 >它可以让你切换路由时页面随意定位。
 
@@ -139,19 +141,19 @@ const router = new VueRouter({
 
 ```
 
-## 路由懒加载
+### 路由懒加载
 
-### 懒加载定义
+#### 懒加载定义
 懒加载也叫延迟加载，即在需要的时候进行加载，随用随载。
 
-### 为什么需要懒加载
+#### 为什么需要懒加载
 
 在单页应用中，如果没有应用懒加载，运用webpack打包后的文件将会异常的大，造成进入首页时，需要加载的内容过多，延时过长，不利于用户体验，而运用懒加载则可以将页面进行划分，需要的时候加载页面，可以有效的分担首页所承担的加载压力，减少首页加载用时
 
-### 为什么需要异步组件
+#### 为什么需要异步组件
 单页应用的一个核心问题在于一进入页面你需要下载整个打包后的app.js文件并执行。使用异步组件我们可以实现在使用时才加载我们需要的组件脚本。例如我们在路由切换时，切换到对应路由再加载对应的组件脚本，可以提升我们的性能。
 
-### 如何与webpack配合实现懒加载
+#### 如何与webpack配合实现懒加载
 1、在webpack配置文件中的output路径配置chunkFilename属性
 ``` js
 output: {
@@ -177,7 +179,7 @@ use: [{
         }
       }]
 ```
-### 具体实例中实现懒加载
+#### 具体实例中实现懒加载
 1、路由中配置异步组件
 ```js
 export default new Router({
