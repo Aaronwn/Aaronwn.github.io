@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      vue-router基础梳理
-subtitle:   工作中常用vue-router知识点
+title:      vuerouter基础梳理
+subtitle:   记录工作中常用vuerouter知识点
 date:       2018-5-2
 author:     Aaronwn
 header-img: img/post-bg-coffee.jpeg
