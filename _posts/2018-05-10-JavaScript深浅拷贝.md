@@ -56,26 +56,19 @@ console.log(bar); // -> {name: 'leeper', age: 19}
 
 ## 深拷贝 & 浅拷贝
 
-浅拷贝：仅仅是复制了**引用**，彼此之间的操作会互相影响
-深拷贝：在堆中重新分配内存，不同的地址，相同的值，互不影响
+- 浅拷贝：仅仅是复制了**引用**，彼此之间的操作会互相影响
+- 深拷贝：在堆中重新分配内存，不同的地址，相同的值，互不影响
 
 总的来说，深浅拷贝的主要区别就是：复制的是引用还是复制的是实例
 
 ## 深浅拷贝的实现
 
 ### 浅拷贝
-- Array.prototype.slice()
-``` JS
-let a = [[1, 2], 3, 4];
-let b = a.slice();
-console.log(a === b); // -> false
 
-a[0][0] = 0;
-console.log(a); // -> [[0, 2], 3, 4]
-console.log(b); // -> [[0, 2], 3, 4]
-```
+- Array.prototype.slice()
 - Array.prototype.concat()
-``` JS
+
+```JS
 let a = [[1, 2], 3, 4];
 let b = a.slice();
 console.log(a === b); // -> false
@@ -131,3 +124,7 @@ function deepCopy(obj) {
   return targetObj;
 }
 ```
+
+## 总结
+- 常用的浅拷贝方法主要有：赋值、Array.prototype.slice()、Array.prototype.concat()
+- 常用的深拷贝方法：JSON.parse(JSON.stringify(obj))、递归算法
