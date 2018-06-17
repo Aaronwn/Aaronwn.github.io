@@ -1,0 +1,105 @@
+---
+layout:     post
+title:      使用decorators与MobX创建React App
+subtitle:   Mobx简单应用示例
+date:       2018-06-11
+author:     Aaronwn
+header-img: img/post-bg-github-cup.jpg
+catalog: true
+tags:
+    - mobx
+---
+
+
+### 创建一个新的创建React应用程序
+
+首先你需要安装create-react-app全局的，可以完成的npm install create-react-app -g。
+一旦你安装了这个软件包，你可以运行命令create-react-app todos来创建你的应用程序。
+
+#### 安装MobX
+
+通过运行yarn add mobx mobx-react...轻松将MobX添加到您的软件包文件！继续下一步。
+
+#### Ejecting from Create React App
+
+create-react-app并不支持装饰器的Babel支持，但它很容易添加。要做到这一点，我们将不得不使用命令从create-react-app中弹出yarn run eject。这将使我们完全控制我们的应用程序的所有包和配置。
+
+#### 安装decorator支持
+
+现在我们已经弹出了，我们可以添加一个额外的babel插件，它提供了装饰器支持。我们想要安装yarn add babel-plugin-transform-decorators-legacy。
+
+接下来，找到文件中的“babel”配置选项package.json。我们希望将这个新软件包添加为插件。我们的配置应该如下所示：
+
+```js
+"babel": {
+  "plugins": ["babel-plugin-transform-decorators-legacy"]
+},
+```
+> 这样我们就可以在项目中使用@observable、 @observer等装饰器语法了。
+
+#### 创建Mobx store
+
+MobX中的store通常包含以下几部分： 
+- 可观察属性 @observable
+- 修改状态的动作 @action
+- 计算属性 @computed
+
+```js
+import { observable ,action ,computed } from 'mobx'
+
+class todoStore {
+  @observable todos = []
+  @action addTodo=(item)=>{
+    this.todos.push(item)
+  }
+  @computed get todosCount(){
+    return this.todos.length
+  }
+}
+const store = new todoStore()
+export default store
+```
+> 重要的是要注意，我们不会导出类本身，而是它的一个实例。我们希望在该应用范围内使用此store的单个实例。
+
+#### 创建Mobx应用程序
+
+为了最终“注入”MobX到我们的组件中，我们需要Provider在我们的App组件周围封装一个组件。对于这个组件，我们将把每个store作为道具。
+
+```js
+
+import {Provider} from 'mobx-react'
+import todoStore from './stores/todoStore'
+const Root=(
+  <Provider todoStore={todoStore}>
+    <App/>
+  </Provider>
+)
+ReactDOM.render(Root, document.getElementById('root'));
+```
+
+#### 注入&观察
+
+为了能够在组件中使用我们的store，并让它对store状态中的变化做出反应（重新渲染），我们将使用mobx-react提供的inject和observer。
+
+```js
+import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
+
+@inject('BirdStore')
+@observer
+export default class Todos extends Component {
+  render() {
+    // access our store via the props
+    const { TodoStore } = this.props;
+
+    return <div>{TodoStore.todos}</div>;
+  }
+}
+```
+
+### 总结
+在本教程中，我们构建了一个小型的create-react-app，并添加了MobX并支持装饰器。
+
+[原文链接](https://www.leighhalliday.com/create-react-app-mobx-decorators)
+
+[更多示例](https://github.com/xqlsq/react-mobx)
