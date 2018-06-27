@@ -59,11 +59,15 @@ kramdown:
 # Disqus settings（https://disqus.com/）
 disqus_username: aaronwn
 
-# 多说 将于2017年6月1日正式关停服务，建议使用 Disqus（http://dev.duoshuo.com/threads/58d1169ae293b89a20c57241）
-# Duoshuo settings
-# duoshuo_username: qiubaiying
-# Share component is depend on Comment so we can NOT use share only.
-# duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+# Gitalk
+gitalk:
+  enable: true    #是否开启Gitalk评论
+  clientID: d5afb20c5ac3c3a1c7a5                            #生成的clientID
+  clientSecret: c6bdf6562b0d770425b69ddcf3bece49a8ecdf81    #生成的clientSecret
+  repo: aaronwn.github.io    #仓库名称
+  owner: Aaronwn    #github用户名
+  admin: Aaronwn
+  distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
 
