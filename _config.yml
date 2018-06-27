@@ -57,7 +57,7 @@ kramdown:
 
 # 评论系统
 # Disqus settings（https://disqus.com/）
-disqus_username: aaronwn
+#disqus_username: aaronwn
 
 # Gitalk
 gitalk:
